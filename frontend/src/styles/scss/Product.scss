@@ -1,0 +1,276 @@
+@import 'Mixins';
+
+//
+//  Produto Detalhe
+//
+#produto{
+    background:$white;
+    padding:$margin*2;
+    @include borderRadius(4px);
+    img{
+        max-width:680px;
+        display:block;
+        height:auto;
+    }
+}
+
+// 
+//  Lista Produtos 
+//
+.searchResult{
+    background:$white;
+    @include borderRadius(4px);
+    ul{
+        list-style:none;
+        display:block;
+        padding:0;
+        &.resultList{
+            li{
+                padding:$margin;
+                overflow:hidden;
+                min-height:180px + ( $margin * 2 );
+                position:relative;
+                &:before{
+                    content:"";
+                    width:calc(100% - 36px);
+                    height:2px;
+                    background:#f7f7f7;
+                    display:block;
+                    bottom:0;
+                    position:absolute;
+                    left:$margin;
+                }
+                a{
+                    &:link,
+                    &:visited{
+                        text-decoration:none;
+                        display:block;
+                        position:relative;
+                        height:180px;
+                        @include transition();
+                        img{
+                            &.productImg{
+                                max-width:180px;
+                                width:180px;
+                                height:180px;
+                                display:block;
+                                @include borderRadius(4px);
+                                position:absolute;
+                            }
+                            &.shipping{
+                                width:18px;
+                                height:18px;
+                                display:inline-block;
+                            }
+                        }
+                        .info{
+                            padding:0 ( 180px + $margin ) 0 ( 180px + $margin );
+                            h2{
+                                @include setFont(18px, $darkgray, $defaultFont);
+                                letter-spacing:0.5px;
+                            }
+                            .price{
+                                @include setFont(24px, $darkgray, $defaultFont);
+                                padding:$margin 0 $margin*2 0;
+                            }
+                            .condition{
+                                @include setFont(18px, $darkgray, $defaultFont);
+                                letter-spacing:0.5px;
+                            }
+                        }
+                        p{
+                            &.locale{
+                                margin:0;
+                                position:absolute;
+                                top:42px;
+                                right:0;
+                                width: 180px + $margin;
+                                @include setFont(12px, $lightgray, $defaultFont);
+                            }
+                        }
+                    }
+                    &:hover{
+                        background:#fafafa;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+        &{
+            ul{
+                &.resultList{
+                    li{
+                        a{
+                            &:link,
+                            &:visited{
+                                .info{
+                                    padding:0 0 0 ( 180px + $margin );
+                                }
+                                p{
+                                    &.locale{
+                                        margin:0;
+                                        position:relative;
+                                        top:auto;
+                                        right:auto;
+                                        width:100%;
+                                        text-align:right;
+                                        @include setFont(12px, $lightgray, $defaultFont);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+        &{
+            ul{
+                &.resultList{
+                    li{
+                        a{
+                            &:link,
+                            &:visited{
+                                height:auto;
+                                img{
+                                    &.productImg{
+                                        position:relative;
+                                    }
+                                }
+                                .info{
+                                    padding:0;
+                                }
+                                p{
+                                    &.locale{
+                                        margin:0;
+                                        position:relative;
+                                        top:auto;
+                                        right:auto;
+                                        width:100%;
+                                        text-align:right;
+                                        @include setFont(12px, $lightgray, $defaultFont);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+// Detail 
+//
+#produto{
+    img{
+        &.imgProduct{
+            display:block;
+            max-width:100%;
+            height:auto;
+            @include borderRadius(4px);
+        }
+    }
+    h1{
+        @include setFont(24px, $darkgray, $defaultFont);
+        margin:$margin 0 ( $margin*2 ) 0;
+        font-weight:600;
+    }
+    p{
+        &.sold{
+            @include setFont(14px, $darkgray, $defaultFont);
+            margin:0;
+        }
+    }
+    .price{
+        display:block;
+        margin:0 0 ( $margin*2 ) 0;
+        span{
+            &.value{
+                @include setFont(46px, $darkgray, $defaultFont);
+                display:inline-block;
+            }
+            &.decimals{
+                @include setFont(24px, $darkgray, $defaultFont);
+                display:inline-block;
+                position:relative;
+                top:-14px;
+                padding:0 4px;
+            }
+        }
+    }
+    .boxBtn{
+        padding:0;
+        a{
+            &.btn{
+                &.btnBuy{
+                   &:link,
+                   &:visited{
+                        display:block;
+                        width:100%;
+                        text-align:center;
+                        background:$blue;
+                        @include setFont(16px, $white, $defaultFont);
+                        padding:11px 10px;
+                        @include transition();
+                   }
+                   &:hover{
+                    background:$blue + #333;
+                   }
+                }
+            }
+        }
+    }
+    .npr{
+        padding-right:0;
+    }
+    .npl{
+        padding-left:0;
+    }
+    .description{
+        padding:160px 0 0 0;
+        h2{
+            @include setFont(28px, $darkgray, $defaultFont);
+            margin:0 0 ( $margin*2 ) 0;
+        }
+        p{
+            @include setFont(16px, $lightgray, $defaultFont);
+            margin:0;
+            display:block;
+            width:100%;
+            pre{
+                width:100%;
+                word-break:break-word;
+                @include setFont(16px, $lightgray, $defaultFont);
+            }
+            code{
+                width:100%;
+                white-space:pre-wrap;
+                @include setFont(16px, $lightgray, $defaultFont);
+            }
+        }
+    }
+    @media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+        &{
+            .description{
+                padding:( $margin * 2 ) 0 0 0;
+            }
+        }
+    }
+    @media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+        &{
+            .npl,
+            .npr{
+                padding:0;
+            }
+            img{
+                &.imgProduct{
+                    margin:0 0 ( $margin * 2 ) 0;
+                }
+            }
+        }
+    }
+}
