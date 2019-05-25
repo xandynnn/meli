@@ -35,6 +35,8 @@ $ npm install
 $ npm run start
 ```
 
+#### Caso utilize o Yarn, siga os procedimentos abaixo:
+
 ###### Iniciando backend com Yarn
 ```
 $ cd backend
