@@ -52,7 +52,7 @@ class Detail extends Component{
 
     calcDecimal( number ){
         let res = "";
-        for ( let x = 1; x <= number; x++ ){ res += 0 } 
+        for ( let contador = 1; contador <= number; contador++ ){ res += 0 } 
         return res;
     }
 
@@ -66,7 +66,6 @@ class Detail extends Component{
 
         let product = this.state.product;
         let categories = this.state.categories;
-        let canonical = window.location.origin + window.location.pathname;
 
         return(
             <React.Fragment>
@@ -78,7 +77,7 @@ class Detail extends Component{
                         <meta charset="utf-8" />
                         <title>{product.title + ' en Mercado Libre'}</title>
                         <meta content={product.title + '. Mercado Libre Argentina - Donde comprar y vender de todo'} name="description" />
-                        <meta content={canonical} name="canonical" />
+                        <meta content={window.location.origin + window.location.pathname} name="canonical" />
                     </Helmet>
                 }
 
@@ -114,7 +113,7 @@ class Detail extends Component{
                                                     <span className="decimals">{ this.calcDecimal(product.price.decimals) }</span>
                                                     </div>
                                                     <div className="boxBtn">
-                                                        <a href={canonical} className="btn btnBuy" title="Comprar">Comprar</a>
+                                                        <a href={window.location.origin + window.location.pathname} className="btn btnBuy" title="Comprar">Comprar</a>
                                                     </div>
                                                 </div>
 

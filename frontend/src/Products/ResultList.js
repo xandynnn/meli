@@ -7,7 +7,7 @@ import Currency from 'react-currency-formatter';
 import api from './../Services/Api';
 import Search from './Search';
 import Helmet from 'react-helmet';
-import NotFound from './NotFound';
+import NotFound from '../Components/NotFound';
 
 import './../styles/css/Breadcrumb.css';
 import './../styles/css/Product.css';
