@@ -83,7 +83,6 @@ export default class ResultList extends Component{
         let products = this.state.products;
         let categories = this.state.categories;
         let searchWords =  queryString.parse( this.props.location.search ).search;
-        let canonical = window.location.origin + window.location.pathname;
 
         return(
             <React.Fragment>
@@ -93,7 +92,7 @@ export default class ResultList extends Component{
                         <meta charset="utf-8" />
                         <title>{searchWords + ' en Mercado Libre'}</title>
                         <meta content={'Encuentre ' + searchWords +' en el Mercado Libre Argentina. Descubre la mejor forma de comprar online.'} name="description" />
-                        <meta content={canonical} name="canonical" />
+                        <meta content={window.location.origin + window.location.pathname} name="canonical" />
                     </Helmet>
                 }
                 
